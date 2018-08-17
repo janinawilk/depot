@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Books Online Store
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %header.main
+      = image_tag 'logo.png', alt: 'The pragmatic bookshelf', size: "100x50"
+      %h1= @page_title
+    %section.content
+      %nav.side_nav
+        %ul
+          %li
+            %a{href: "/"} Home
+          %li
+            %a{href: "/"} Questions
+          %li
+            %a{href: "/"} News
+          %li
+            %a{href: "/"} Contact
+    %main{:class => "#{controller.controller_name}"}
+      = yield
